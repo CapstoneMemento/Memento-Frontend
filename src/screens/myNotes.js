@@ -40,26 +40,30 @@ export default function MyNotesScreen() {
         renderItem={({ item }) => (
           <View style={styles.item}>
             <Text style={styles.title}>{item.title}</Text>
-            <View style={styles.detailContainer}>
-              <Text style={styles.detailText}>{item.type}</Text>
+
+            <View style={styles.detail}>
+              <Text style={styles.subText}>{item.type}</Text>
               <Moment
-                style={styles.detailText}
+                style={styles.subText}
                 element={Text}
                 format={getFormat(item.createdBy)}
               >
                 {item.createdBy}
               </Moment>
             </View>
-            <Text style={styles.text}>{item.text.slice(0, 80)}...</Text>
+
+            <View style={styles.contents}>
+              <Text style={styles.text}>{item.text.slice(0, 60)}...</Text>
+              <Pressable onPress={onPressLearnMore}>
+                <Entypo name="dots-three-vertical" size={16} color="gray" />
+              </Pressable>
+            </View>
           </View>
         )}
       />
 
-      <Pressable
-        style={{ zIndex: 100, position: "absolute", bottom: 16, right: 16 }}
-        onPress={onPressLearnMore}
-      >
-        <View style={styles.button}>
+      <Pressable style={styles.roundBtnPressable} onPress={onPressLearnMore}>
+        <View style={styles.roundButton}>
           <Entypo name="camera" size={24} color="white" />
         </View>
       </Pressable>
@@ -76,18 +80,33 @@ const styles = StyleSheet.create({
   },
 
   title: { fontSize: 14, fontWeight: "bold" },
-  detailContainer: {
+
+  detail: {
     flex: 1,
     flexDirection: "row",
     justifyContent: "space-between",
     marginBottom: 5,
   },
 
-  detailText: { fontSize: 10, color: "gray" },
+  subText: { fontSize: 10, color: "gray" },
+
+  contents: {
+    flex: 1,
+    flexDirection: "row",
+    justifyContent: "space-between",
+    alignItems: "center",
+  },
 
   text: { fontSize: 12 },
 
-  button: {
+  roundBtnPressable: {
+    zIndex: 100,
+    position: "absolute",
+    bottom: 16,
+    right: 16,
+  },
+
+  roundButton: {
     width: 50,
     height: 50,
     borderRadius: 50,
