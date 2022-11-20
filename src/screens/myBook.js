@@ -1,13 +1,13 @@
-import React, { useState } from "react";
+import React from "react";
 import { StyleSheet, Text, View, FlatList, Pressable } from "react-native";
 import Moment from "react-moment";
 import { useSelector, useDispatch } from "react-redux";
 import { Entypo } from "@expo/vector-icons";
 
-import { add } from "../redux/features/myNotes/myNotesSlice";
+import { add } from "../redux/myBook/myBookSlice";
 
-export default function MyNotesScreen() {
-  const myNotes = useSelector((state) => state.myNotes.value);
+export default function MyBookScreen() {
+  const myBook = useSelector((state) => state.myBook.value);
   const dispatch = useDispatch();
 
   const getFormat = (date) => {
@@ -27,7 +27,7 @@ export default function MyNotesScreen() {
   return (
     <View style={styles.container}>
       <FlatList
-        data={myNotes}
+        data={myBook}
         renderItem={({ item }) => (
           <View style={styles.item}>
             <Text style={styles.title}>{item.title}</Text>
