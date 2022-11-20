@@ -43,7 +43,7 @@ export default function NoteList() {
           </View>
 
           <View style={styles.contents}>
-            <Text style={styles.text}>{item.text.slice(0, 60)}...</Text>
+            <Text style={styles.text}>{item.text.slice(0, 50)}...</Text>
             <Pressable onPress={onPressLearnMore}>
               <Entypo name="dots-three-vertical" size={16} color="gray" />
             </Pressable>
@@ -60,7 +60,7 @@ const styles = StyleSheet.create({
     marginVertical: 14,
   },
 
-  title: { fontSize: 14, fontWeight: "bold" },
+  title: { fontSize: 16, fontWeight: "bold" },
 
   detail: {
     flex: 1,
@@ -69,7 +69,7 @@ const styles = StyleSheet.create({
     marginBottom: 5,
   },
 
-  subText: { fontSize: 10, color: "gray" },
+  subText: { fontSize: 12, color: "gray" },
 
   contents: {
     flex: 1,
@@ -78,5 +78,5 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
 
-  text: { fontSize: 12 },
+  text: { fontSize: 14, width: "95%" },
 });
