@@ -17,8 +17,8 @@ const initialState = {
   ],
 };
 
-export const myBookSlice = createSlice({
-  name: "myBook",
+export const mySubjectSlice = createSlice({
+  name: "mySubject",
   initialState,
   reducers: {
     add: (state, action) => {
@@ -29,6 +29,6 @@ export const myBookSlice = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { add } = myBookSlice.actions;
+export const { add } = mySubjectSlice.actions;
 
-export default myBookSlice.reducer;
+export default mySubjectSlice.reducer;

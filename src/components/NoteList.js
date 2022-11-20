@@ -4,10 +4,10 @@ import Moment from "react-moment";
 import { useSelector, useDispatch } from "react-redux";
 import { Entypo } from "@expo/vector-icons";
 
-import { add } from "../redux/myBook/myBookSlice";
+import { add } from "../redux/mySubject/mySubjectSlice";
 
 export default function NoteList() {
-  const myBook = useSelector((state) => state.myBook.value);
+  const mySubject = useSelector((state) => state.mySubject.value);
   const dispatch = useDispatch();
 
   const getFormat = (date) => {
@@ -26,7 +26,7 @@ export default function NoteList() {
 
   return (
     <FlatList
-      data={myBook}
+      data={mySubject}
       renderItem={({ item }) => (
         <View style={styles.item}>
           <Text style={styles.title}>{item.title}</Text>

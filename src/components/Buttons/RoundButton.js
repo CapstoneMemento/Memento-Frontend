@@ -3,10 +3,10 @@ import { StyleSheet, View, Pressable } from "react-native";
 import { useSelector, useDispatch } from "react-redux";
 import { Entypo } from "@expo/vector-icons";
 
-import { add } from "../../redux/myBook/myBookSlice";
+import { add } from "../../redux/mySubject/mySubjectSlice";
 
 export default function RoundButton() {
-  const myBook = useSelector((state) => state.myBook.value);
+  const mySubject = useSelector((state) => state.mySubject.value);
   const dispatch = useDispatch();
 
   const onPressLearnMore = () => {

@@ -4,7 +4,7 @@ import { StyleSheet, View } from "react-native";
 import NoteList from "../components/NoteList";
 import RoundButton from "../components/Buttons/RoundButton";
 
-export default function MyBookScreen() {
+export default function MySubjectScreen() {
   return (
     <View style={styles.container}>
       <NoteList />

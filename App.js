@@ -4,7 +4,7 @@ import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { Provider } from "react-redux";
 
 import { store } from "./src/redux/store";
-import MyBookScreen from "./src/screens/myBook";
+import mySubjectScreen from "./src/screens/mySubject";
 
 const Stack = createNativeStackNavigator();
 
@@ -15,7 +15,7 @@ export default function App() {
         <Stack.Navigator>
           <Stack.Screen
             name="내 암기장"
-            component={MyBookScreen}
+            component={mySubjectScreen}
             options={{ headerTitleStyle: { fontWeight: "bold" } }}
           />
         </Stack.Navigator>
