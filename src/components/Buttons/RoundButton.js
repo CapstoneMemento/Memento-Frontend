@@ -1,20 +1,17 @@
 import React from "react";
 import { StyleSheet, View, Pressable } from "react-native";
-import { useSelector, useDispatch } from "react-redux";
+import { useDispatch } from "react-redux";
 import { Entypo } from "@expo/vector-icons";
 
-import { add } from "../../redux/mySubject/mySubjectSlice";
+import { open } from "../../redux/reducers/newNoteModal/newNoteModal";
 
 export default function RoundButton() {
-  const mySubject = useSelector((state) => state.mySubject.value);
   const dispatch = useDispatch();
 
-  const onPressLearnMore = () => {
-    console.log("pressed");
-  };
+  const openModal = () => dispatch(open());
 
   return (
-    <Pressable style={styles.pressable} onPress={onPressLearnMore}>
+    <Pressable style={styles.pressable} onPress={openModal}>
       <View style={styles.button}>
         <Entypo name="plus" size={24} color="white" />
       </View>

@@ -4,7 +4,7 @@ import Moment from "react-moment";
 import { useSelector, useDispatch } from "react-redux";
 import { Entypo } from "@expo/vector-icons";
 
-import { add } from "../redux/mySubject/mySubjectSlice";
+import { add } from "../redux/reducers/mySubject/mySubjectSlice";
 
 export default function NoteList() {
   const mySubject = useSelector((state) => state.mySubject.value);
