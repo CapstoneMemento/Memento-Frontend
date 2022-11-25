@@ -16,7 +16,7 @@ export default function RoundButton() {
   return (
     <Pressable style={styles.pressable} onPress={onPressLearnMore}>
       <View style={styles.button}>
-        <Entypo name="camera" size={24} color="white" />
+        <Entypo name="plus" size={24} color="white" />
       </View>
     </Pressable>
   );
@@ -24,7 +24,7 @@ export default function RoundButton() {
 
 const styles = StyleSheet.create({
   pressable: {
-    zIndex: 100,
+    zIndex: 10,
     position: "absolute",
     bottom: 16,
     right: 16,
