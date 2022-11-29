@@ -9,12 +9,14 @@ export default function Loading() {
 
   useEffect(() => {
     if (modalVisible) {
-      Animated.timing(rotateAni, {
-        toValue: 360,
-        duration: 1200,
-        easing: Easing.linear,
-        useNativeDriver: true,
-      }).start();
+      Animated.loop(
+        Animated.timing(rotateAni, {
+          toValue: 360,
+          duration: 1000,
+          easing: Easing.linear,
+          useNativeDriver: true,
+        })
+      ).start();
     }
   }, [rotateAni]);
 
