@@ -3,15 +3,18 @@ import { StyleSheet, View, Pressable } from "react-native";
 import { useDispatch } from "react-redux";
 import { Entypo } from "@expo/vector-icons";
 
-import { open } from "../../redux/reducers/newNoteModal/newNoteModal";
+import { open } from "../../redux/reducers/Modal/newNoteModal";
 
-export default function RoundButton() {
-  const dispatch = useDispatch();
+export default function RoundButton({ navigation }) {
+  // const dispatch = useDispatch();
+  // const openModal = () => dispatch(open());
 
-  const openModal = () => dispatch(open());
+  const onPress = () => {
+    navigation.navigate("앨범");
+  };
 
   return (
-    <Pressable style={styles.pressable} onPress={openModal}>
+    <Pressable style={styles.pressable} onPress={onPress}>
       <View style={styles.button}>
         <Entypo name="plus" size={24} color="white" />
       </View>

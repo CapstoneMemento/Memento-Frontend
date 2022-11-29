@@ -5,11 +5,11 @@ import NoteList from "../components/NoteList";
 import RoundButton from "../components/Buttons/RoundButton";
 import NewNoteModal from "../components/Modals/NewNoteModal";
 
-export default function MySubjectScreen() {
+export default function MySubjectScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <NoteList />
-      <RoundButton />
+      <RoundButton navigation={navigation} />
       <NewNoteModal />
     </View>
   );

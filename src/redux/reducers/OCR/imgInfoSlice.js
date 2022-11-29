@@ -1,11 +1,11 @@
 import { createSlice } from "@reduxjs/toolkit";
 
 const initialState = {
-  value: null,
+  value: { url: null, textFields: null },
 };
 
-export const textResult = createSlice({
-  name: "textResult",
+export const imgInfo = createSlice({
+  name: "imgInfo",
   initialState,
   reducers: {
     set: (state, action) => {
@@ -15,6 +15,6 @@ export const textResult = createSlice({
 });
 
 // Action creators are generated for each case reducer function
-export const { set } = textResult.actions;
+export const { set } = imgInfo.actions;
 
-export default textResult.reducer;
+export default imgInfo.reducer;
