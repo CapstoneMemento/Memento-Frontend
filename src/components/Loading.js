@@ -9,16 +9,20 @@ export default function Loading() {
 
   useEffect(() => {
     if (modalVisible) {
-      Animated.loop(
-        Animated.timing(rotateAni, {
-          toValue: 360,
-          duration: 1000,
-          easing: Easing.linear,
-          useNativeDriver: true,
-        })
-      ).start();
+      startAnimation();
     }
   }, [rotateAni]);
+
+  const startAnimation = () => {
+    Animated.loop(
+      Animated.timing(rotateAni, {
+        toValue: 360,
+        duration: 1000,
+        easing: Easing.linear,
+        useNativeDriver: true,
+      })
+    ).start();
+  };
 
   return (
     <Modal transparent={true} visible={modalVisible}>

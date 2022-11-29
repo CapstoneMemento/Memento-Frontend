@@ -7,7 +7,7 @@ import { store } from "./src/redux/store";
 import mySubjectScreen from "./src/screens/mySubject";
 import TestAlbumScreen from "./src/screens/testAlbum";
 import OCRResultScreen from "./src/screens/ocrResult";
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 
 const Stack = createNativeStackNavigator();
 
@@ -19,12 +19,12 @@ export default function App() {
           <Stack.Screen
             name="내 암기장"
             component={mySubjectScreen}
-            options={{ headerTitleStyle: { fontWeight: "bold" } }}
+            options={{ headerTitleStyle: styles.headerTitle }}
           />
           <Stack.Screen
             name="앨범"
             component={TestAlbumScreen}
-            options={{ headerTitleStyle: { fontWeight: "bold" } }}
+            options={{ headerTitleStyle: styles.headerTitle }}
           />
           <Stack.Screen
             name="텍스트 추출 결과"
@@ -38,3 +38,9 @@ export default function App() {
     </Provider>
   );
 }
+
+const styles = StyleSheet.create({
+  headerTitle: {
+    fontWeight: "bold",
+  },
+});
