@@ -11,8 +11,8 @@ import { useDispatch, useSelector } from "react-redux";
 import { Entypo } from "@expo/vector-icons";
 import DocumentScanner from "react-native-document-scanner-plugin";
 import * as ImagePicker from "expo-image-picker";
-import { SECRET_KEY, INVOKE_URL } from "@env";
 
+import { SECRET_KEY, INVOKE_URL } from "@env";
 import { close } from "../../redux/reducers/Modal/newNoteModal";
 
 const menu = [
@@ -21,7 +21,7 @@ const menu = [
   { icon: "image", text: "앨범에서 가져오기" },
 ];
 
-export default function newNoteModal() {
+export default function newNoteModal({ navigation }) {
   const [image, setImage] = useState(null);
 
   useEffect(() => {
@@ -39,7 +39,7 @@ export default function newNoteModal() {
       //scanDocument();
     }
     if (itemIndex === 2) {
-      pickImage();
+      navigation.navigate("앨범");
     }
   };
 

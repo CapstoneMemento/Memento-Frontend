@@ -9,8 +9,8 @@ export default function MySubjectScreen({ navigation }) {
   return (
     <View style={styles.container}>
       <NoteList />
-      <RoundButton navigation={navigation} />
-      <NewNoteModal />
+      <RoundButton />
+      <NewNoteModal navigation={navigation} />
     </View>
   );
 }

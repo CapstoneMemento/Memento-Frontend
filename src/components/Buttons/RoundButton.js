@@ -5,12 +5,12 @@ import { Entypo } from "@expo/vector-icons";
 
 import { open } from "../../redux/reducers/Modal/newNoteModal";
 
-export default function RoundButton({ navigation }) {
-  // const dispatch = useDispatch();
-  // const openModal = () => dispatch(open());
+export default function RoundButton() {
+  const dispatch = useDispatch();
+  const openModal = () => dispatch(open());
 
   const onPress = () => {
-    navigation.navigate("앨범");
+    openModal();
   };
 
   return (

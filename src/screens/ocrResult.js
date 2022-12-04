@@ -1,5 +1,12 @@
 import React from "react";
-import { Image, Text, StyleSheet, View, Pressable } from "react-native";
+import {
+  Image,
+  Text,
+  StyleSheet,
+  View,
+  Pressable,
+  ScrollView,
+} from "react-native";
 import { useSelector } from "react-redux";
 
 export default function OCRResultScreen() {
@@ -13,12 +20,15 @@ export default function OCRResultScreen() {
       <Pressable
         style={{
           padding: 16,
+          flex: 1,
         }}
       >
         <Text style={styles.title}>텍스트 추출 결과</Text>
-        <Text style={styles.text}>
-          {imgInfo.textFields.map((item) => `${item.inferText} `)}
-        </Text>
+        <ScrollView style={{ width: "100%" }}>
+          <Text style={styles.text}>
+            {imgInfo.textFields.map((item) => `${item.inferText} `)}
+          </Text>
+        </ScrollView>
       </Pressable>
     </View>
   );
