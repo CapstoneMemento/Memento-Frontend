@@ -1,5 +1,11 @@
-import React from "react";
-import { Image, StyleSheet, TouchableOpacity, View } from "react-native";
+import React, { useState } from "react";
+import {
+  Image,
+  StyleSheet,
+  TouchableOpacity,
+  View,
+  Dimensions,
+} from "react-native";
 import { useDispatch } from "react-redux";
 
 import { SECRET_KEY, INVOKE_URL } from "@env";
@@ -31,6 +37,10 @@ const testImages = [
 ];
 
 export default function TestAlbumScreen({ navigation }) {
+  const [photoSize, setPhotosize] = useState(
+    Dimensions.get("window").width / 3
+  );
+
   const dispatch = useDispatch();
   const setImgInfo = (info) => dispatch(set(info));
   const startLoading = () => dispatch(start());
@@ -42,11 +52,12 @@ export default function TestAlbumScreen({ navigation }) {
 
   const runOCR = async ({ name, url }) => {
     startLoading();
+
     const result = await (
       await fetch(`${INVOKE_URL}`, {
         method: "POST",
         headers: {
-          "X-OCR-SECRET": `${SECRET_KEY}=`,
+          "X-OCR-SECRET": `${SECRET_KEY}`,
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
@@ -78,7 +89,7 @@ export default function TestAlbumScreen({ navigation }) {
           key={item.name}
           onPress={async () => await getImage(item)}
         >
-          <Image style={styles.photo} source={item.source} />
+          <Image style={photoStyle(photoSize).image} source={item.source} />
         </TouchableOpacity>
       ))}
       <Loading />
@@ -87,16 +98,13 @@ export default function TestAlbumScreen({ navigation }) {
 }
 
 const styles = StyleSheet.create({
-  container: {
-    flex: 1,
-    flexDirection: "row",
-    flexWrap: "wrap",
-    paddingHorizontal: 14,
-  },
-
-  photo: {
-    width: 106,
-    height: 106,
-    margin: 2,
-  },
+  container: { flex: 1, flexDirection: "row", flexWrap: "wrap" },
 });
+
+const photoStyle = (photoSize) =>
+  StyleSheet.create({
+    image: {
+      width: photoSize,
+      height: photoSize,
+    },
+  });
