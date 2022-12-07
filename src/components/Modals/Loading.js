@@ -32,7 +32,7 @@ export default function Loading() {
             transform: [
               {
                 rotate: rotateAni.interpolate({
-                  inputRange: [0, 720],
+                  inputRange: [0, 360],
                   outputRange: ["0deg", "360deg"],
                 }),
               },
