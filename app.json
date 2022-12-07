@@ -33,6 +33,11 @@
     },
     "plugins": [
       "react-native-document-scanner-plugin"
-    ]
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "85d3bb10-9878-43db-904a-9bb6583257ac"
+      }
+    }
   }
 }
