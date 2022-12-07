@@ -9,12 +9,8 @@ export default function RoundButton() {
   const dispatch = useDispatch();
   const openModal = () => dispatch(open());
 
-  const onPress = () => {
-    openModal();
-  };
-
   return (
-    <Pressable style={styles.pressable} onPress={onPress}>
+    <Pressable style={styles.pressable} onPress={openModal}>
       <View style={styles.button}>
         <Entypo name="plus" size={24} color="white" />
       </View>

@@ -1,5 +1,5 @@
 import React from "react";
-import { Image, StyleSheet, View } from "react-native";
+import { StyleSheet, View } from "react-native";
 
 import NoteList from "../components/NoteList";
 import RoundButton from "../components/Buttons/RoundButton";

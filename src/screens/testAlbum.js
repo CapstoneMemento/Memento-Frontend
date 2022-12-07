@@ -13,6 +13,7 @@ import Loading from "../components/Modals/Loading";
 import { end, start } from "../redux/reducers/Modal/loadingSlice";
 import { set } from "../redux/reducers/OCR/imgInfoSlice";
 
+// 테스트 이미지
 const testImages = [
   {
     source: require("../assets/note-1.jpg"),
@@ -46,14 +47,18 @@ export default function TestAlbumScreen({ navigation }) {
   const startLoading = () => dispatch(start());
   const endLoading = () => dispatch(end());
 
-  const getImage = async (img) => {
-    await runOCR(img);
-  };
-
-  const runOCR = async ({ name, url }) => {
+  const runOCR = async (imgItem) => {
     startLoading();
 
-    const result = await (
+    const result = await fetchTextResult(imgItem);
+
+    setImgInfo({ url: imgItem.url, textFields: result.images[0].fields });
+    endLoading();
+    navigation.navigate("텍스트 추출 결과");
+  };
+
+  const fetchTextResult = async ({ name, url }) => {
+    return await (
       await fetch(`${INVOKE_URL}`, {
         method: "POST",
         headers: {
@@ -77,9 +82,6 @@ export default function TestAlbumScreen({ navigation }) {
         }),
       })
     ).json();
-    setImgInfo({ url, textFields: result.images[0].fields });
-    endLoading();
-    navigation.navigate("텍스트 추출 결과");
   };
 
   return (
@@ -87,7 +89,7 @@ export default function TestAlbumScreen({ navigation }) {
       {testImages.map((item) => (
         <TouchableOpacity
           key={item.name}
-          onPress={async () => await getImage(item)}
+          onPress={async () => await runOCR(item)}
         >
           <Image style={photoStyle(photoSize).image} source={item.source} />
         </TouchableOpacity>

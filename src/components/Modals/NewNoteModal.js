@@ -12,7 +12,6 @@ import { Entypo } from "@expo/vector-icons";
 import DocumentScanner from "react-native-document-scanner-plugin";
 import * as ImagePicker from "expo-image-picker";
 
-import { SECRET_KEY, INVOKE_URL } from "@env";
 import { close } from "../../redux/reducers/Modal/newNoteModal";
 
 const menu = [
@@ -35,9 +34,14 @@ export default function newNoteModal({ navigation }) {
   const onPressBackground = () => dispatch(close());
 
   const onPressItem = (itemIndex) => {
-    if (itemIndex === 1) {
-      //scanDocument();
+    if (itemIndex === 0) {
+      // 직접 입력하기
     }
+
+    if (itemIndex === 1) {
+      // scanDocument();
+    }
+
     if (itemIndex === 2) {
       navigation.navigate("앨범");
     }
@@ -67,31 +71,6 @@ export default function newNoteModal({ navigation }) {
     }
   };
 
-  const runOCR = async () => {
-    const result = await fetch(`${INVOKE_URL}`, {
-      method: "POST",
-      headers: {
-        "X-OCR-SECRET": `${SECRET_KEY}=`,
-        "Content-Type": "application/json",
-      },
-      body: JSON.stringify({
-        images: [
-          {
-            format: "jpeg",
-            name: "note-4",
-            data: image,
-            url: null,
-          },
-        ],
-        lang: "ko",
-        requestId: "string",
-        timestamp: 0,
-        version: "V2",
-        enableTableDetection: true,
-      }),
-    });
-  };
-
   return (
     <Modal transparent={true} visible={modalVisible}>
       <Pressable style={styles.background} onPress={onPressBackground}>
@@ -107,7 +86,7 @@ export default function newNoteModal({ navigation }) {
                   <Entypo name={item.icon} size={24} color="black" />
                   <Text style={{ marginLeft: 10 }}>{item.text}</Text>
                 </Pressable>
-                {/* 마지막 item에는 라인 추가 */}
+                {/* 마지막 item에는 라인 추가하지 않기 */}
                 {index !== 2 && <View style={styles.line} />}
               </>
             )}
