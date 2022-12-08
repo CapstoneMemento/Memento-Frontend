@@ -6,6 +6,6 @@
 
 [APK 파일 다운로드](https://expo.dev/artifacts/eas/q6MXWWi5KG7rSqW8bi4oRo.apk)
 
-'무시하고 설치'를 눌러 설치를 진행해주세요. 아래는 실행한 데모 영상입니다.
+다운받은 apk 파일을 실행하여 설치하면 됩니다. 중간에 경고 메시지가 뜨면 '무시하고 설치'를 눌러주세요.
 
 <img width="200px" src="https://user-images.githubusercontent.com/70844774/206440455-df1b83ea-5363-45b5-86e8-20d41e8f6d47.gif" />
