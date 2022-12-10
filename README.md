@@ -1,5 +1,6 @@
 ## 메멘토 - 판례 암기
 아래는 피그마 프로토타입입니다. 모바일이 아닌 PC로 접속해주세요.  
+
 [Prototype](https://www.figma.com/proto/PAtCFGzUsNUn2xVA9h49ll/%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85?page-id=241%3A2445&node-id=241%3A2524&viewport=-717%2C2647%2C0.33&scaling=min-zoom&starting-point-node-id=241%3A2524&show-proto-sidebar=1)
 
 현재 테스트 이미지를 사용하여 텍스트를 추출하는 OCR 부분만 구현한 상태입니다.  
